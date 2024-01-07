@@ -11,15 +11,12 @@ let clientes = [
     telefono: "+34 611 000 111",
     email: "cliente1@gmail.com",
     fechaRegistro: new Date(),
-    recomendado: " ",
     compras: [
       {
         id: 1,
         marca: "Rayban",
         graduacionIzquierda: "2.3",
         graduacionDerecha: "2.0",
-        colorCristalIzquierdo: "",
-        colorCristalDerecho: "",
         montura: "metalica",
         precio: "127.00",
       },
@@ -48,8 +45,8 @@ let clientes = [
         marca: "Rayban",
         graduacionIzquierda: "2.3",
         graduacionDerecha: "2.0",
-        colorCristalIzquierdo: "",
-        colorCristalDerecho: "",
+        colorCristalIzquierdo: "oscuro",
+        colorCristalDerecho: "oscuro",
         montura: "metalica",
         precio: "127.00",
       },
@@ -60,36 +57,36 @@ let clientes = [
 db.clientes.insertMany(clientes); // insertamos en la base de datos
 
 // Coleccion Proveedores -------------
-db.createCollection("proveedores"); // creación de la collection proveedores
+// db.createCollection("proveedores"); // creación de la collection proveedores
 
-let proveedores = [
-  {
-    nombre: "proveedor1",
-    direccion: {
-      calle: "Diagonal",
-      numero: "120",
-      piso: "3",
-      puerta: "4",
-      ciudad: "Barcelona",
-      codigo_postal: "08002",
-      pais: "España",
-    },
-    telefono: "+34 600 111 000",
-    NIF: "P111",
-  },
-  {
-    nombre: "proveedor2",
-    direccion: {
-      calle: "Padilla",
-      numero: "120",
-      piso: "3",
-      puerta: "4",
-      ciudad: "Barcelona",
-      codigo_postal: "08002",
-      pais: "España",
-    },
-    telefono: "+34 600 222 000",
-    NIF: "P222",
-  },
-];
-db.proveedores.insertMany(proveedores);
+// let proveedores = [
+//   {
+//     nombre: "proveedor1",
+//     direccion: {
+//       calle: "Diagonal",
+//       numero: "120",
+//       piso: "3",
+//       puerta: "4",
+//       ciudad: "Barcelona",
+//       codigo_postal: "08002",
+//       pais: "España",
+//     },
+//     telefono: "+34 600 111 000",
+//     NIF: "P111",
+//   },
+//   {
+//     nombre: "proveedor2",
+//     direccion: {
+//       calle: "Padilla",
+//       numero: "120",
+//       piso: "3",
+//       puerta: "4",
+//       ciudad: "Barcelona",
+//       codigo_postal: "08002",
+//       pais: "España",
+//     },
+//     telefono: "+34 600 222 000",
+//     NIF: "P222",
+//   },
+// ];
+// db.proveedores.insertMany(proveedores);
