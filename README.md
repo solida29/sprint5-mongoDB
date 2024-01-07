@@ -23,6 +23,8 @@ El nostre sistema haurà d’indicar qui ha sigut l’empleat/da que ha venut ca
    ![ejercicio1](/img/culdampolla1.jpg)
 
 2. Exercici 2
+   I si el punt de vista fos de la interfície fossin les ulleres?
+
    ![ejercicio2](/img/culdampolla2.jpg)
 
 <hr>
