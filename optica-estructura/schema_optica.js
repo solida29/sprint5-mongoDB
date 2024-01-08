@@ -1,10 +1,11 @@
-// Para incorporar los schemas en collection
+// Para incorporar los schemas en collection con Mongosh
 
+// schema customers
 db.createCollection("customers", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "telephone"],
+      required: ["name", "telephone"], // campos obligatorios a rellenar
       properties: {
         name: { bsonType: "string" },
         address: { bsonType: "string" },
@@ -16,11 +17,19 @@ db.createCollection("customers", {
   },
 });
 
+// schema glasses
 db.createCollection("glasses", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["brand", "graduacion_L", "graduacion_R", "montura", "precio"],
+      required: [
+        "brand",
+        "graduacion_L",
+        "graduacion_R",
+        "montura",
+        "precio",
+        "provider",
+      ],
       properties: {
         brand: { bsonType: "string" },
         graduation_L: { bsonType: "string" },
@@ -35,11 +44,12 @@ db.createCollection("glasses", {
   },
 });
 
+// schema providers
 db.createCollection("providers", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "telephone", "Register_date"],
+      required: ["name", "nif"],
       properties: {
         name: { bsonType: "string" },
         adress: {
@@ -62,6 +72,19 @@ db.createCollection("providers", {
   },
 });
 
+db.createCollection("employee", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "nif"],
+      properties: {
+        name: { bsonType: "string" },
+        nif: { bsonType: "string" },
+      },
+    },
+  },
+});
+
 db.createCollection("sales", {
   validator: {
     $jsonSchema: {
@@ -70,6 +93,7 @@ db.createCollection("sales", {
       properties: {
         id_customer: { bsonType: "objectId" },
         id_glasses: { bsonType: "objectId" },
+        id_employee: { bsonType: "objectId" },
         register_date: { bsonType: "date" },
       },
     },
