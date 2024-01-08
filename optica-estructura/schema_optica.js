@@ -7,6 +7,7 @@ db.createCollection("customers", {
       bsonType: "object",
       required: ["name", "telephone"], // campos obligatorios a rellenar
       properties: {
+        // _id: { bsonType: "objectId"},  // NO se pone porque mongoDB lo genera automaticamente
         name: { bsonType: "string" },
         address: { bsonType: "string" },
         telephone: { bsonType: "string" },
