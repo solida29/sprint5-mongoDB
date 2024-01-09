@@ -74,30 +74,23 @@ Para usar el Docker:
 - Ejecutar el contenedor mongodb_container del Docker en la terminal
 
 ```sh
-docker start mongodb_container
+docker compose up
 ```
 
-- Conectarse a la consola del Docker
-
-```sh
-docker attach mongodb_container
-```
-
-- Trabajo en Visual Studio Code, con la extensión de Mongo DB.
-  Hay que conectarse al contenedor del Docker, que está en localhost:
-
-```sh
-mongodb://root:password@localhost:27017
-```
-
-- Para conectar con Mongo DB Shell: Mongosh, hay que entrar en la Terminal:
-
-```sh
-mongosh "mongodb://root:password@localhost:27017"
-```
-
-- Conectarse al container con mongosh
+- Conectarse al container con Mongosh:
 
 ```sh
 docker exec -it mongodb_container mongosh
+```
+
+- Vamos a la BBDD admin:
+
+```sh
+use admin
+```
+
+- Para la authentication:
+
+```sh
+db.auth("root", "password")
 ```

@@ -1,0 +1,41 @@
+db.data.find( { grades: { $elemMatch: { grade: "A", score: 11, date: ISODate("2014-08-11T00:00:00Z") } } }, { restaurant_id: 1, name: 1, grades: 1 } );
+db.data.find( { $and: [{ cuisine: "Seafood" }, { $nor: [{ cuisine: "American" }, { cuisine: "Chinese" }, { name: /^Wil/ }] }] }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { grades: { $elemMatch: { grade: "A", score: 11, date: ISODate("2014-08-11T00:00:00Z") } } }, { restaurant_id: 1, name: 1, grades: 1 } );
+db.data.find( { "grades.grade": "A", "grades.score": 11, "grades.date": "2014-08-11T00:00:00Z" }, { restaurant_id: 1, name: 1, grades: 1 } );
+db.data.find( { score: 11, "grades.score": "2014-08-11T00:00:00Z" }, { restaurant_id: 1, name: 1, "grades.score": 1 } );
+it
+db.data.find( { $and: [ { cuisine: "Seafood" }, { $nor: [ { cuisine: "American" }, { cuisine: "Chinese" }, { name: /^Wil/ }] }] }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { $and: [ { cuisine: "Seafood" }, { $nor: [ { cuisine: "American" }, { cuisine: "Chinese" }, { name: /^Wil/ }] }] }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+b.data.find( { $and: [ { cuisine: "Seafood" }, { $nor: [ { cuisine: "American" }, { cuisine: "Chinese" }, { name: /^Wil/ }] }] }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { $and: [ { cuisine: "Seafood" }, { $nor: [ { cuisine: "American" }, { cuisine: "Chinese" }, { name: /^Wil/ }] }] }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { $and: [ { cuisine: "Seafood" }, { $nor: [ { cuisine: { $ne: "American" } }, { cuisine: { $ne: "Chinese" } }, { name: /^Wil/ }] }] }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { $and: [{ cuisine: "Seafood" }, { cuisine: { $ne: "American" } }, { cuisine: { $ne: "Chinese" } }], name: { $ne: /^Wil/ } }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { $and: [{ cuisine: "Seafood" }, { cuisine: { $ne: "American" } }, { cuisine: { $ne: "Chinese" } }], name: { $ne: /^Wil/ } }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { "grades.score": { $lt: 10 } }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find({ borough: "Bronx", cuisine: { $in: ["American", "chinese"] } });
+db.data.find( { name: /Reg/ }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { name: /^Wil/ }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find( { name: /ces$/ }, { restaurant_id: 1, name: 1, borough: 1, cuisine: 1 } );
+db.data.find({ name: /ces$/ }, { restaurant_id: 1, borough: 1, cuisine: 1 });
+db.data.find({ name: /^Wil/ }, { restaurant_id: 1, borough: 1, cuisine: 1 });
+db.data.find( { nombre: { $regex: /^Wil/ } }, { restaurant_id: 1, borough: 1, cuisine: 1 } );
+db.data.find({ nombre: /^Wil/, restaurant_id: 1, borough: 1, cuisine: 1 });
+db.data.find( { nombre: /^Wil/ }, { restaurant_id: 1, borough: 1, cuisine: 1 } );
+db.data.find();
+db.data.find({ restaurant_id: 1, borough: 1, cuisine: 1, nombre: /^Wil/ });
+show collections
+cls
+show collections
+show dbs
+use restaurantes
+show dbs
+show collections
+db.createCollection("sales", { validator: { $jsonSchema: { bsonType: "object", required: ["id_customer", "id_glasses", "register_date"], properties: { id_customer: { bsonType: "objectId" }, id_glasses: { bsonType: "objectId" }, id_employee: { bsonType: "objectId" }, register_date: { bsonType: "date" } } } } });
+db.createCollection("employee", { validator: { $jsonSchema: { bsonType: "object", required: ["name", "nif"], properties: { name: { bsonType: "string" }, nif: { bsonType: "string" } } } } });
+db.createCollection("providers", { validator: { $jsonSchema: { bsonType: "object", required: ["name", "nif"], properties: { name: { bsonType: "string" }, adress: { bsonType: "object", properties: { street: { bsonType: "string" }, num: { bsonType: "string" }, floor: { bsonType: "string" }, door: { bsonType: "string" }, city: { bsonType: "string" }, cp: { bsonType: "string" }, country: { bsonType: "string" } } }, telephone: { bsonType: "string" }, email: { bsonType: "string" }, nif: { bsonType: "string" } } } } });
+db.createCollection("glasses", { validator: { $jsonSchema: { bsonType: "object", required: [ "brand", "graduacion_L", "graduacion_R", "montura", "precio", "provider"], properties: { brand: { bsonType: "string" }, graduation_L: { bsonType: "string" }, graduation_R: { bsonType: "string" }, glass_color_L: { bsonType: "string" }, glass_color_R: { bsonType: "string" }, frame_type: { bsonType: "string" }, provider: { bsonType: "string" }, price: { bsonType: "number" } } } } });
+show collections
+db.createCollection("customers", { validator: { $jsonSchema: { bsonType: "object", required: ["name", "telephone"], /* campos obligatorios a rellenar*/ properties: { /* _id: { bsonType: "objectId"},  // NO se pone porque mongoDB lo genera automaticamente*/ name: { bsonType: "string" }, address: { bsonType: "string" }, telephone: { bsonType: "string" }, email: { bsonType: "string" }, Register_date: { bsonType: "date" } } } } });
+use optica
+show dbs
+use adminn
