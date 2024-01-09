@@ -97,7 +97,8 @@ db.data.find(
 db.data.find(
   {
     grades: {
-      // $elemMatch es para seleccionar documentos donde más de una condición debe cumplirse en el mismo elemento de un array (grades)
+      // $elemMatch selecciona los documentos donde más de una condición debe cumplirse en el mismo elemento de un array (grades)
+      // $elemMatch permite filtrar sobre atributos de docs dentro de un listado-array
       $elemMatch: {
         grade: "A",
         score: 11,
@@ -111,3 +112,15 @@ db.data.find(
     grades: 1,
   }
 );
+
+// 29. Escriu una consulta que seleccioni tots els documents en la col·lecció de restaurants on els valors del camp coord és de tipus Double.
+db.data.find({ "address.coord": { $elemMatch: { $type: "double" } } });
+// $elemMatch se usa para buscar documentos donde al menos un elemento en un array cumple con varias condiciones
+// $type se usa para buscar documentos donde el valor de un campo es de un tipo específico. En este caso, estás buscando documentos donde al menos un elemento en address.coord es de tipo Double.
+
+// 30. Escriu una consulta que seleccioni el restaurant_id, name i grade per a aquells restaurants que retornen 0 com a residu després de dividir algun dels seus score per 7.
+db.data.find(
+  { "grades.score": { $mod: [7, 0] } },
+  { restaurant_id: 1, name: 1, "grades.grade": 1 }
+);
+// El operador $mod en MongoDB toma un array de dos elementos como valor, donde el primer elemento es el divisor y el segundo elemento es el residuo esperado.
