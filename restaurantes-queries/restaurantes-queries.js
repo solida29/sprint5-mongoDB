@@ -119,6 +119,7 @@ db.data.find(
 db.data.find();
 
 // 24. Escriu una consulta per trobar el restaurant_id, name, adreça i ubicació geogràfica per a aquells restaurants on el segon element de l'array coord conté un valor entre 42 i 52.
+
 // 25. Escriu una consulta per organitzar els restaurants per nom en ordre ascendent.
 
 // 26. Escriu una consulta per organitzar els restaurants per nom en ordre descendent.
