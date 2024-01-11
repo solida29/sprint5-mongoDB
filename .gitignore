@@ -13,5 +13,5 @@ node_modules
 # Ignore dist folder
 dist
 
-# Ignore mongodb-data folder (volume of container)
+# Ignore mongodb-data folder (volume of container)..//
 mongodb-data

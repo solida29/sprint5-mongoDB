@@ -36,7 +36,7 @@ Para usar el Docker:
 - Ejecutar el contenedor mongodb_container del Docker en la terminal
 
 ```sh
-docker compose up
+docker compose up -d
 ```
 
 - Conectarse al container con Mongosh:
